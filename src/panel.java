@@ -173,7 +173,7 @@ public class panel extends JPanel implements KeyListener
 			tgdada[1] = "tgdadgdshit.wav";
 			tgdada[2] = "tgdadguh.wav";
 			tgdada[3] = "tgdadfphil.wav";
-			tgdada[4] = "tgdadf911.wav";
+			tgdada[4] = "tgdadgd.wav";
 			tgdada[5] = "tgdadfuall.wav";
 			tgdada[6] = "tgdadof.wav";
 			tgdada[7] = "tgdadwthts.wav";
@@ -276,6 +276,19 @@ public class panel extends JPanel implements KeyListener
 			tgdada[7] = "zaj_whobeen.wav";
 		}
 	}
+      
+      Sound.init();
+      Sound.addSound(attacks, loc);
+      
+      for(int i = 0; i < tgdada.length; i++)
+      {
+          Sound.addSound("tgdada" + i, tgdada[i]);
+      }
+      
+      Sound.addSound("entry", entry);
+      Sound.addSound("win", win);
+      Sound.addSound("lose", lose);
+      Sound.addSound("runs", runs);
 	
 	//loc[16] = "tgfphil.wav";
     
@@ -388,15 +401,7 @@ public class panel extends JPanel implements KeyListener
     
     used[buffer[attackNum]] = true;
     
-    try
-    {
-            Clip clip = AudioSystem.getClip();
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(loc[buffer[attackNum]]));
-            clip.open(inputStream);
-            clip.start(); 
-          } catch (Exception e) {
-            System.err.println(e.getMessage());
-      }
+      Sound.play(currentAttack);
 
   }
   
@@ -511,16 +516,7 @@ public class panel extends JPanel implements KeyListener
 			
 			if(rCount == 0)
 			{
-				try
-				{
-					Clip clip = AudioSystem.getClip();
-					AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(runs));
-					clip.open(inputStream);
-					clip.start();
-					
-				  } catch (Exception efse) {
-					System.err.println(efse.getMessage());
-				}
+				Sound.play("runs");
 			}
 			else if(rCount == 20)
 			{
@@ -885,107 +881,35 @@ public class panel extends JPanel implements KeyListener
                 {
                   if(attacks[buffer[aNum]].contains("fuck") || attacks[buffer[aNum]].contains("Fuck") || attacks[buffer[aNum]].contains("FUCK") || attacks[buffer[aNum]].contains("f-ck") || attacks[buffer[aNum]].contains("F-ck") || attacks[buffer[aNum]].contains("F-CK"))
                   {
-                    try
-                    {
-                            Clip clip = AudioSystem.getClip();
-                            AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(tgdada[0]));
-                            clip.open(inputStream);
-                            clip.start();
-                            
-                          } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                      }
+                	  Sound.play("tgdada0");
                   }
                   else if(randy <= 0.15)
                   {
-                    try
-                    {
-                            Clip clip = AudioSystem.getClip();
-                            AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(tgdada[1]));
-                            clip.open(inputStream);
-                            clip.start();
-                            
-                          } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                      }
+                	  Sound.play("tgdada1");
                   }
                   else if(randy > 0.15 && randy <= 0.30)
                   {
-                    try
-                    {
-                            Clip clip = AudioSystem.getClip();
-                            AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(tgdada[2]));
-                            clip.open(inputStream);
-                            clip.start();
-                            
-                          } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                      }
+                	  Sound.play("tgdada2");
                   }
 				  else if(randy > 0.30 && randy  <= 0.45)
 				  {
-						try
-						{
-                            Clip clip = AudioSystem.getClip();
-                            AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(tgdada[3]));
-                            clip.open(inputStream);
-                            clip.start();
-                            
-                          } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                      }
+					  Sound.play("tgdada3");
 				  }
-				  else if(randy > 0.45 && randy  <= 0.60)
+				  else if(randy > 0.45 && randy  <= 0.55)
 				  {
-						try
-						{
-                            Clip clip = AudioSystem.getClip();
-                            AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(tgdada[4]));
-                            clip.open(inputStream);
-                            clip.start();
-                            
-                          } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                      }
+					  Sound.play("tgdada4");
 				  }
-				  else if(randy > 0.60 && randy <= 0.75)
+				  else if(randy > 0.55 && randy <= 0.75)
 				  {
-						try
-						{
-                            Clip clip = AudioSystem.getClip();
-                            AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(tgdada[5]));
-                            clip.open(inputStream);
-                            clip.start();
-                            
-                          } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                      }
+					  Sound.play("tgdada5");
 				  }
 				  else if(randy > 0.75 && randy <= 0.90)
 				  {
-						try
-						{
-                            Clip clip = AudioSystem.getClip();
-                            AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(tgdada[6]));
-                            clip.open(inputStream);
-                            clip.start();
-                            
-                          } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                      }
+					  Sound.play("tgdada6");
 				  }
 				  else
 				  {
-						try
-						{
-                            Clip clip = AudioSystem.getClip();
-                            AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(tgdada[7]));
-                            clip.open(inputStream);
-                            clip.start();
-                            
-                          } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                      }
+					  Sound.play("tgdada7");
 				  }
                 }
                       
@@ -1005,16 +929,7 @@ public class panel extends JPanel implements KeyListener
         {
           if(fecount == 0)
           {
-            try
-            {
-                    Clip clip = AudioSystem.getClip();
-                    AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(win));
-                    clip.open(inputStream);
-                    clip.start();
-                    
-                  } catch (Exception e) {
-                    System.err.println(e.getMessage());
-              }
+        	  Sound.play("win");
           }
           else
           {
@@ -1049,18 +964,7 @@ public class panel extends JPanel implements KeyListener
       
       if(decount == 0)
       {
-        try
-        {
-                Clip clip = AudioSystem.getClip();
-                AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(lose));
-                clip.open(inputStream);
-                clip.start();
-                
-          } 
-        catch (Exception e)
-          {
-                System.err.println(e.getMessage());
-          }
+    	  Sound.play("lose");
       }
       
       decount++;
@@ -1205,23 +1109,14 @@ public class panel extends JPanel implements KeyListener
   {
     public void actionPerformed( ActionEvent a )
     {
-      if(count > 5)
+      if(count > 3)
       {
         isMSAppear = true;
       }
       
-      if(count == 5)
+      if(count == 3)
       {
-        try
-        {
-                Clip clip = AudioSystem.getClip();
-                AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(entry));
-                clip.open(inputStream);
-                clip.start();
-                
-              } catch (Exception e) {
-                System.err.println(e.getMessage());
-          }
+    	  Sound.play("entry");
       }
       
       count++;
