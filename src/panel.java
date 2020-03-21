@@ -368,17 +368,6 @@ public class panel extends JPanel implements KeyListener
        // this.addKeyListener(this);
         
         start();
-        
-        try
-    {
-            Clip clip = AudioSystem.getClip();
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(bgm));
-            clip.open(inputStream);
-            clip.loop(clip.LOOP_CONTINUOUSLY);
-            
-          } catch (Exception e) {
-            System.err.println(e.getMessage());
-      }
   }
   
   public void start()
@@ -1109,14 +1098,28 @@ public class panel extends JPanel implements KeyListener
   {
     public void actionPerformed( ActionEvent a )
     {
-      if(count > 3)
+      if(count > 5)
       {
         isMSAppear = true;
       }
       
-      if(count == 3)
+      if(count == 5)
       {
     	  Sound.play("entry");
+      }
+      else if(count == 1)
+      {
+      	 try
+    {
+            Clip clip = AudioSystem.getClip();
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(main.class.getResourceAsStream(bgm));
+            clip.open(inputStream);
+            clip.loop(clip.LOOP_CONTINUOUSLY);
+            
+          } catch (Exception e) {
+            System.err.println(e.getMessage());
+      }
+
       }
       
       count++;
